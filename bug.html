@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Uncommon HTML Bug</title>
+</head>
+<body>
+  <div id="myDiv">
+    This text is initially visible.
+  </div>
+  <button onclick="myFunction()">Click Me</button>
+
+  <script>
+    function myFunction() {
+      document.getElementById("myDiv").innerHTML = ""; // Clears the div
+      document.getElementById("myDiv").style.display = "none"; // Hides the div
+      // The bug:  Attempting to access a non-existent element after removing it.
+      document.getElementById("myDiv").style.backgroundColor = "red"; 
+    }
+  </script>
+</body>
+</html>
